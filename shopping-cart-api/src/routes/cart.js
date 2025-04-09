@@ -14,6 +14,10 @@ router.post('/add', async (req, res) => {
 	if (err) {
 		if (isServerError(err.status)) {
 			console.log(`Added ${cartItems.items.length} to the retry cache`);
+			return res.status(200).json({
+				status: true,
+				message: 'Items queued to be added to cart'
+			});
 		} else {
 			throw err;
 		}
