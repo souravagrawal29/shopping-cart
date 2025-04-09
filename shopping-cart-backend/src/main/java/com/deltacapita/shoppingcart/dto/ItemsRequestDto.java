@@ -1,6 +1,7 @@
 package com.deltacapita.shoppingcart.dto;
 
 import com.deltacapita.shoppingcart.businessLogic.ItemType;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class ItemsRequestDto {
     }
 
     public void validate() {
-        if (items.isEmpty()) {
+        if (CollectionUtils.isEmpty(items)) {
             throw new IllegalArgumentException("Items list cannot be empty");
         }
         StringBuilder invalidItems = new StringBuilder();
