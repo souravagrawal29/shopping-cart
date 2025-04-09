@@ -117,7 +117,7 @@ The JavaScript layer only relays the request from the user to the Java backend. 
 Every time, a new request to add the items is received the pending items along with the new items are retried. At the point the cache is invalidated. If the request with the pending items and the new items fails again, the cache is again updated with the items list.  
 There is also a setInterval function running at an interval to clear the cache and add the items to the cart instead of waiting for another request. 
 
-###Caveats and how they can be fixed
+### Caveats and how they can be fixed
 1. If the API Layer goes down, we lose the inmemory cache just like the Backend Server. 
 2. Downtime of any service leads to loss of data, java backend - actual cart items, API Layer - cached cart items. 
 3. In order to solve this in a real world scenario, a database layer for storing the data of the cart items in the java backend and a persistent cache like redis in the API Layer can be added to prevent any data loss.
